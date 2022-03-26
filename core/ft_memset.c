@@ -6,16 +6,18 @@
 /*   By: dcerrito <dcerrito@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 03:45:46 by dcerrito          #+#    #+#             */
-/*   Updated: 2022/03/23 04:00:34 by dcerrito         ###   ########.fr       */
+/*   Updated: 2022/03/26 18:56:07 by dcerrito         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_memset(char *ptr, int c, unsigned int len)
-{
-	int	i;
+#include <stddef.h>
 
-	i = -1;
-	while (++i, i < len)
-		*(ptr + i) = c;
-	return (ptr);
+void	*ft_memset(void *__dest, int c, size_t len)
+{
+	char	*dest;
+
+	dest = __dest;
+	while (len--)
+		*(dest + len) = c;
+	return (__dest);
 }
