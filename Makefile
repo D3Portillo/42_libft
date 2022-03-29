@@ -6,7 +6,7 @@
 #    By: dcerrito <dcerrito@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/28 08:06:16 by dcerrito          #+#    #+#              #
-#    Updated: 2022/03/28 08:52:06 by dcerrito         ###   ########.fr        #
+#    Updated: 2022/03/29 04:25:39 by dcerrito         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,10 +32,12 @@ CORE_FILES = \
 	ft_strchr.c		\
 	ft_strrchr.c	\
 	ft_strncmp.c	\
-	ft_strdup.c	\
+	ft_strdup.c		\
 	ft_strnstr.c	\
 	ft_atoi.c		\
-	ft_calloc.c
+	ft_calloc.c		\
+	ft_strlcpy.c	\
+	ft_strlcat.c
 SRCS = $(addprefix $(CORE_DIR), $(CORE_FILES))
 OBJS = $(patsubst %.c, %.o, $(addprefix $(CORE_DIR), $(CORE_FILES)))
 $(NAME): $(OBJS)

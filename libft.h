@@ -6,7 +6,7 @@
 /*   By: dcerrito <dcerrito@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 04:30:17 by dcerrito          #+#    #+#             */
-/*   Updated: 2022/03/28 08:53:05 by dcerrito         ###   ########.fr       */
+/*   Updated: 2022/03/29 04:20:44 by dcerrito         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,7 @@ char	*ft_strchr(const char *haystack, int char_to_search);
 char	*ft_strdup(const char *str);
 char	*ft_strnstr(const char *haystack, const char *to_search, size_t n);
 char	*ft_strrchr(const char *haystack, int char_to_search);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 
 #endif
