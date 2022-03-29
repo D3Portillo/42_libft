@@ -2,3 +2,7 @@
 run
 rund
 none.c
+.vscode
+*.out
+*.a
+*.o
