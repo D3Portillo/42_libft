@@ -6,17 +6,19 @@
 /*   By: dcerrito <dcerrito@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 22:19:58 by dcerrito          #+#    #+#             */
-/*   Updated: 2022/03/28 04:47:34 by dcerrito         ###   ########.fr       */
+/*   Updated: 2022/03/29 03:10:25 by dcerrito         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *__s, int c, size_t n)
+void	*ft_memchr(const void *__s, int __c, size_t n)
 {
-	const char	*s;
+	unsigned char	*s;
+	unsigned char	c;
 
-	s = __s;
+	s = (void *)__s;
+	c = __c;
 	while (n--)
 	{
 		if (*s == c)
