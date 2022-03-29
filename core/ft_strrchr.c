@@ -6,24 +6,26 @@
 /*   By: dcerrito <dcerrito@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 19:46:39 by dcerrito          #+#    #+#             */
-/*   Updated: 2022/03/28 04:48:29 by dcerrito         ###   ########.fr       */
+/*   Updated: 2022/03/29 04:44:38 by dcerrito         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *src, int c)
 {
-	const char	*ptr;
+	char	*result;
+	char	to_locate;
 
-	ptr = 0;
-	while (*s)
+	result = 0;
+	to_locate = c;
+	while (*src)
 	{
-		if (*s == c)
-			ptr = s;
-		s++;
+		if (*src == to_locate)
+			result = (char *)src;
+		src++;
 	}
-	if (c == 0)
-		ptr = s;
-	return ((char *)ptr);
+	if (to_locate == 0)
+		result = (char *)src;
+	return (result);
 }
