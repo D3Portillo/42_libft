@@ -6,14 +6,13 @@
 /*   By: dcerrito <dcerrito@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 02:47:41 by dcerrito          #+#    #+#             */
-/*   Updated: 2022/03/23 03:23:02 by dcerrito         ###   ########.fr       */
+/*   Updated: 2022/03/28 08:53:13 by dcerrito         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c);
-int	ft_isalpha(int c);
+#include "libft.h"
 
-int	is_alnum(int c)
+int	ft_isalnum(int c)
 {
 	return (ft_isalpha(c) || ft_isdigit(c));
 }
