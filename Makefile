@@ -6,14 +6,16 @@
 #    By: dcerrito <dcerrito@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/28 08:06:16 by dcerrito          #+#    #+#              #
-#    Updated: 2022/03/29 04:25:39 by dcerrito         ###   ########.fr        #
+#    Updated: 2022/03/31 06:47:47 by dcerrito         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I.
+CFLAGS = -Wall -Wextra -Werror -I .
 CORE_DIR = core/
+BONUS_DIR = bonus/
+UTILS_DIR = utils/
 CORE_FILES = \
 	ft_memset.c		\
 	ft_bzero.c		\
@@ -37,14 +39,27 @@ CORE_FILES = \
 	ft_atoi.c		\
 	ft_calloc.c		\
 	ft_strlcpy.c	\
-	ft_strlcat.c
-SRCS = $(addprefix $(CORE_DIR), $(CORE_FILES))
-OBJS = $(patsubst %.c, %.o, $(addprefix $(CORE_DIR), $(CORE_FILES)))
-$(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
+	ft_strlcat.c	\
+
+UTILS_FILES = \
+	ft_strtrim.c	\
+
+BONUS_FILES = \
+	ft_lstnew.c	\
+
+PACK = ar rc
+CORE_OBJS = $(patsubst %.c, %.o, $(addprefix $(CORE_DIR), $(CORE_FILES)))
+UTILS_OBJS = $(patsubst %.c, %.o, $(addprefix $(UTILS_DIR), $(UTILS_FILES)))
+BONUS_OBJS = $(patsubst %.c, %.o, $(addprefix $(BONUS_DIR), $(BONUS_FILES)))
+CORE_AND_UTILS = $(CORE_OBJS) $(UTILS_OBJS)
+$(NAME): $(CORE_AND_UTILS)
+	$(PACK) $(NAME) $(CORE_AND_UTILS)
 all: $(NAME)
+bonus: $(BONUS_OBJS)
+	$(PACK) $(NAME) $(BONUS_OBJS)
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(CORE_AND_UTILS)
+	rm -rf $(BONUS_OBJS)
 fclean: clean
 	rm -f $(NAME)
 re: fclean all

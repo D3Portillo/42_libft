@@ -6,7 +6,7 @@
 /*   By: dcerrito <dcerrito@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 04:30:17 by dcerrito          #+#    #+#             */
-/*   Updated: 2022/03/29 04:20:44 by dcerrito         ###   ########.fr       */
+/*   Updated: 2022/03/31 07:00:45 by dcerrito         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,12 @@
 // Imports standard library for malloc
 # include <stdlib.h>
 // Import limits definition for INT_MAX, LONG_MAX
-# include <limits.h>
 
+/*
+ /////////////////////////////////////////////////
+ * CORE FUNCTIONS
+ * Functions that mimic those from common c, std and string libs.
+**/
 int		ft_atoi(const char *str);
 int		ft_memcmp(const void *str1, const void *str2, size_t n);
 int		ft_isalnum(int c);
@@ -51,5 +55,25 @@ char	*ft_strnstr(const char *haystack, const char *to_search, size_t n);
 char	*ft_strrchr(const char *haystack, int char_to_search);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+
+/*
+ /////////////////////////////////////////////////
+ * HELPER FUNCTIONS
+ * Complementary functions using core utilities.
+**/
+char	*ft_strtrim(char const *s1, char const *set);
+
+/*
+ /////////////////////////////////////////////////
+ * BONUS FUNCTIONS
+ * Extra function helpers : )
+**/
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
+
+t_list	*ft_lstnew(void *content);
 
 #endif
