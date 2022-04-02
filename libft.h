@@ -6,7 +6,7 @@
 /*   By: dcerrito <dcerrito@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 04:30:17 by dcerrito          #+#    #+#             */
-/*   Updated: 2022/04/02 03:11:27 by dcerrito         ###   ########.fr       */
+/*   Updated: 2022/04/02 07:37:58 by dcerrito         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 // Imports standard library for malloc
 # include <stdlib.h>
 // Import limits definition for INT_MAX, LONG_MAX
+# include <limits.h>
 
 /*
  /////////////////////////////////////////////////
