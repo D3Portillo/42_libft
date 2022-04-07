@@ -6,7 +6,7 @@
 /*   By: dcerrito <dcerrito@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 19:14:33 by dcerrito          #+#    #+#             */
-/*   Updated: 2022/03/29 05:50:37 by dcerrito         ###   ########.fr       */
+/*   Updated: 2022/04/03 20:49:48 by dcerrito         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		haystack++;
 		limit++;
 	}
-	return (0);
+	return (NULL);
 }
