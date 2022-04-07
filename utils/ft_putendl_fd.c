@@ -6,7 +6,7 @@
 /*   By: dcerrito <dcerrito@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 03:09:03 by dcerrito          #+#    #+#             */
-/*   Updated: 2022/04/02 11:37:00 by dcerrito         ###   ########.fr       */
+/*   Updated: 2022/04/07 21:31:15 by dcerrito         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	ft_putendl_fd(char *str, int fd)
 {
-	ft_putstr_fd(str, fd);
-	ft_putstr_fd("\n", fd);
+	if (fd > 0)
+	{
+		ft_putstr_fd(str, fd);
+		ft_putstr_fd("\n", fd);
+	}
 }
