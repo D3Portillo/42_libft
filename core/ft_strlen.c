@@ -6,18 +6,18 @@
 /*   By: dcerrito <dcerrito@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 03:33:01 by dcerrito          #+#    #+#             */
-/*   Updated: 2022/03/28 04:48:18 by dcerrito         ###   ########.fr       */
+/*   Updated: 2022/04/07 21:35:36 by dcerrito         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+int	ft_strlen(const char *str)
 {
 	int	size;
 
 	size = 0;
-	while (str[size])
+	while (str && str[size])
 		++size;
 	return (size);
 }
