@@ -6,31 +6,21 @@
 /*   By: dcerrito <dcerrito@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 03:09:16 by dcerrito          #+#    #+#             */
-/*   Updated: 2022/04/07 10:23:51 by dcerrito         ###   ########.fr       */
+/*   Updated: 2022/04/07 18:56:26 by dcerrito         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	get_result_size(const char *__str, char separator)
+static int	buffer_size(char *str, char delimiter, int i)
 {
-	int		i;
-	char	*str;
-
-	str = (char *)__str;
-	i = 0;
 	while (*str)
 	{
-		if (*str == separator && str[1] != separator)
+		if (*str != delimiter && (str[1] == delimiter || !str[1]))
 			++i;
 		++str;
 	}
-	return (i + 2);
-}
-
-static char	*get_buffer(char *head)
-{
-	return (malloc(sizeof(char) * (ft_strlen(head) + 1)));
+	return (i + 1);
 }
 
 static int	set_zero(int *n)
@@ -46,7 +36,7 @@ static void	*set_buffer(char **buffer, char *content)
 	return (*buffer = content);
 }
 
-char	**ft_split(char const *__str, char separator)
+char	**ft_split(char const *__str, char delimiter)
 {
 	char	**result;
 	char	*str;
@@ -54,23 +44,18 @@ char	**ft_split(char const *__str, char separator)
 	int		elems;
 	int		i;
 
-	if (!set_buffer(&str, ft_strtrim(__str, &separator)))
+	if (!set_buffer(&str, (char *)__str))
 		return (NULL);
-	result = malloc(sizeof(char *) * get_result_size((head = str), separator));
-	if (!result)
+	result = malloc(sizeof(char *) * buffer_size((head = str), delimiter, 0));
+	if (set_zero(&elems), set_zero(&i), !result)
 		return (NULL);
-	if (set_zero(&elems), set_zero(&i), *head)
-		result[elems] = get_buffer(head);
 	while (*str)
 	{
-		if (*str != separator)
-			result[elems][i++] = *str;
-		else if (str[1] != separator
-			&& set_buffer(&result[elems + 1], get_buffer(head)))
-			result[elems++][set_zero(&i)] = '\0';
+		if (*str != delimiter && (str[1] == delimiter || !str[1]))
+			result[elems++] = ft_substr(&str[-i], 0, set_zero(&i) + 1);
+		else if (*str != delimiter)
+			++i;
 		++str;
 	}
-	if (separator && *head)
-		result[elems++][i] = '\0';
-	return (set_buffer(&result[elems], NULL), free(head), result);
+	return (set_buffer(&result[elems], NULL), result);
 }
