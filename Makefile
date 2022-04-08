@@ -6,18 +6,15 @@
 #    By: dcerrito <dcerrito@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/28 08:06:16 by dcerrito          #+#    #+#              #
-#    Updated: 2022/04/02 04:41:07 by dcerrito         ###   ########.fr        #
+#    Updated: 2022/04/08 20:51:50 by dcerrito         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = gcc
 PACK = ar rcs
-CFLAGS = -Wall -Wextra -Werror -I.
+CFLAGS = -Wall -Wextra -Werror
 FRM = rm -rf
-CORE_DIR = core/
-BONUS_DIR = bonus/
-UTILS_DIR = utils/
 CORE_FILES = \
 	ft_memset.c		\
 	ft_bzero.c		\
@@ -67,9 +64,9 @@ BONUS_FILES = \
 	ft_lstclear.c		\
 	ft_lstmap.c			\
 
-CORE_OBJS = $(patsubst %.c, %.o, $(addprefix $(CORE_DIR), $(CORE_FILES)))
-UTILS_OBJS = $(patsubst %.c, %.o, $(addprefix $(UTILS_DIR), $(UTILS_FILES)))
-BONUS_OBJS = $(patsubst %.c, %.o, $(addprefix $(BONUS_DIR), $(BONUS_FILES)))
+CORE_OBJS = $(patsubst %.c, %.o, $(CORE_FILES))
+UTILS_OBJS = $(patsubst %.c, %.o, $(UTILS_FILES))
+BONUS_OBJS = $(patsubst %.c, %.o, $(BONUS_FILES))
 OBJS_CORE_UTILS = $(CORE_OBJS) $(UTILS_OBJS)
 $(NAME): $(OBJS_CORE_UTILS)
 	$(FRM) $(BONUS_OBJS)
