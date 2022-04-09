@@ -6,7 +6,7 @@
 /*   By: dcerrito <dcerrito@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 04:45:33 by dcerrito          #+#    #+#             */
-/*   Updated: 2022/04/08 14:40:42 by dcerrito         ###   ########.fr       */
+/*   Updated: 2022/04/09 20:28:07 by dcerrito         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,9 @@ int	ft_atoi(const char *str)
 {
 	size_t	result;
 	int		multiplier;
-	int		i;
 
 	multiplier = 1;
 	result = 0;
-	i = 0;
 	while (is_space(*str))
 		++str;
 	if (*str == '-')
