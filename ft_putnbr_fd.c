@@ -6,7 +6,7 @@
 /*   By: dcerrito <dcerrito@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 03:09:08 by dcerrito          #+#    #+#             */
-/*   Updated: 2022/04/07 21:31:26 by dcerrito         ###   ########.fr       */
+/*   Updated: 2022/04/09 22:19:36 by dcerrito         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void	appends(long int n, int fd)
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if (fd > 0)
+	if (fd >= 0)
 		appends(n, fd);
 }

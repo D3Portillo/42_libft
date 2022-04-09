@@ -6,7 +6,7 @@
 /*   By: dcerrito <dcerrito@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 03:08:59 by dcerrito          #+#    #+#             */
-/*   Updated: 2022/04/07 21:28:54 by dcerrito         ###   ########.fr       */
+/*   Updated: 2022/04/09 22:19:25 by dcerrito         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	if (fd > 0)
+	if (fd >= 0)
 		write(fd, &c, 1);
 }
