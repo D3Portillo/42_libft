@@ -6,7 +6,7 @@
 #    By: dcerrito <dcerrito@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/28 08:06:16 by dcerrito          #+#    #+#              #
-#    Updated: 2022/04/08 20:51:50 by dcerrito         ###   ########.fr        #
+#    Updated: 2022/04/09 22:00:36 by dcerrito         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,30 +54,38 @@ UTILS_FILES = \
 	ft_substr.c		\
 
 BONUS_FILES = \
-	ft_lstnew.c			\
-	ft_lstadd_front.c	\
-	ft_lstadd_back.c	\
-	ft_lstsize.c		\
-	ft_lstlast.c		\
-	ft_lstiter.c		\
-	ft_lstdelone.c		\
-	ft_lstclear.c		\
-	ft_lstmap.c			\
+	ft_lstnew_bonus.c		\
+	ft_lstadd_front_bonus.c	\
+	ft_lstadd_back_bonus.c	\
+	ft_lstsize_bonus.c		\
+	ft_lstlast_bonus.c		\
+	ft_lstiter_bonus.c		\
+	ft_lstdelone_bonus.c	\
+	ft_lstclear_bonus.c		\
+	ft_lstmap_bonus.c		\
 
 CORE_OBJS = $(patsubst %.c, %.o, $(CORE_FILES))
 UTILS_OBJS = $(patsubst %.c, %.o, $(UTILS_FILES))
 BONUS_OBJS = $(patsubst %.c, %.o, $(BONUS_FILES))
 OBJS_CORE_UTILS = $(CORE_OBJS) $(UTILS_OBJS)
-$(NAME): $(OBJS_CORE_UTILS)
-	$(FRM) $(BONUS_OBJS)
+DEFAULT_PART = .default
+BONUS_PART = .bonus
+
+$(NAME): $(DEFAULT_PART)
+$(DEFAULT_PART): $(OBJS_CORE_UTILS)
 	$(PACK) $(NAME) $(OBJS_CORE_UTILS)
-all: $(NAME)
-bonus: $(BONUS_OBJS)
-	$(FRM) $(OBJS_CORE_UTILS)
+	@$(FRM) $(BONUS_PART)
+	@touch $(DEFAULT_PART)
+$(BONUS_PART): $(BONUS_OBJS)
 	$(PACK) $(NAME) $(BONUS_OBJS)
+	@$(FRM) $(DEFAULT_PART)
+	@touch $(BONUS_PART)
+all: $(DEFAULT_PART)
+bonus: $(BONUS_PART)
 clean:
 	$(FRM) $(OBJS_CORE_UTILS) $(BONUS_OBJS)
+	$(FRM) $(DEFAULT_PART) $(BONUS_PART)
 fclean: clean
 	$(FRM) $(NAME)
 re: fclean all
-.PHONY: clean fclean
+.PHONY: re clean fclean bonus all
