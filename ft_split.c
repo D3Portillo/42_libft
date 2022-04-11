@@ -6,7 +6,7 @@
 /*   By: dcerrito <dcerrito@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 03:09:16 by dcerrito          #+#    #+#             */
-/*   Updated: 2022/04/08 15:51:34 by dcerrito         ###   ########.fr       */
+/*   Updated: 2022/04/11 01:22:09 by dcerrito         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ static int	set_zero(int *n)
 {
 	int	init_state;
 
-	return (init_state = *n, *n = 0, init_state);
+	init_state = *n;
+	return (*n = 0, init_state);
 }
 
 static int	freed_content(char **content, int elems, int free_content)
@@ -42,14 +43,13 @@ char	**ft_split(char const *__str, char delimiter)
 {
 	char	**result;
 	char	*str;
-	char	*head;
 	int		elems;
 	int		i;
 
 	str = (char *)__str;
 	if (!str)
 		return (NULL);
-	result = malloc(sizeof(char *) * buffer_size((head = str), delimiter, 1));
+	result = malloc(sizeof(char *) * buffer_size(str, delimiter, 1));
 	if (set_zero(&elems), set_zero(&i), !result)
 		return (NULL);
 	while (*str)
