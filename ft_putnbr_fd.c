@@ -6,13 +6,13 @@
 /*   By: dcerrito <dcerrito@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 03:09:08 by dcerrito          #+#    #+#             */
-/*   Updated: 2022/04/09 22:19:36 by dcerrito         ###   ########.fr       */
+/*   Updated: 2022/04/11 21:53:57 by dcerrito         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	appends(long int n, int fd)
+static void	appends(long int n, int fd)
 {
 	if (n < 0 && write(fd, "-", 1))
 		n *= -1;
